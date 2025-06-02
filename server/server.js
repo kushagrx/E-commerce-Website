@@ -11,9 +11,12 @@ app.use(express.json());
 app.use(express.static('public')); // Serve static HTML/CSS/JS
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-.then(() => console.log('MongoDB connected'))
-.catch((err) => console.log(err));
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log('MongoDB connected to local instance!'))
+.catch(err => console.log(err));
 
 // Routes
 const productRoutes = require('./routes/productRoutes');
